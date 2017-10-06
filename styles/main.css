@@ -1,0 +1,122 @@
+/*
+  ========================================
+  Clearfix
+  ========================================
+*/
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+.group:after {
+    clear: both;
+}
+.group {
+    clear: both;
+    *zoom: 1;
+}
+/*===================================*/
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+
+/*================================*/
+
+body {
+    font: 300 16px/22px "Lato", "Open Sans", sans-serif;
+
+}
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%;
+    max-width: 960px;
+    background: #b5b5b5;
+}
+
+header {
+    margin: 0;
+    border: 1px solid #000000;
+    /*width: 97%;*/
+    /*background: #5c5c5c*/
+}
+
+
+.logo {
+    float: left;
+    max-width: 60px;
+    height: auto;
+    margin-right: 1em;
+    /*margin-top: 1em;*/
+    /*background: #5c2122;*/
+}
+
+.container {
+    width: 100%;
+    border: 1px solid #000000;
+}
+.content {
+    float: right;
+    width: 75.5%;
+    /*background: #8f8f8f;*/
+    border: 1px solid #000000;
+}
+
+aside {
+    float: left;
+    width: 24%;
+    /*background: #a9a9a9;*/
+
+}
+
+.nav-one {
+    border: 1px solid #000000;
+}
+
+.row {
+    border-bottom: 1px solid #000000;
+}
+
+.nav-two li {
+    display: inline-block;
+    float: right;
+    /*background: #eeeeee;*/
+    margin: 10px;
+}
+
+h2{
+    margin-top: 8px;
+    float: left;
+}
+
+table {
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+footer {
+    /*width: 97%;*/
+    magrin: 1em;
+    padding: 1em;
+    border: 1px solid #000000;
+    text-align: center
+}
