@@ -20,8 +20,10 @@ GENERAL
 *****************************/
 
 body {
-    font: 300 16px/22px 'Open Sans',"Changa One", sans-serif;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
 }
+
 *,
 *:before,
 *:after {
@@ -205,6 +207,7 @@ footer {
     #menu {
         display: none;
         width: 50%;
+        height: 338px;
         z-index: 999;
         position: absolute;
         background: #f1f1f1;

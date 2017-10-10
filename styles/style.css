@@ -1,0 +1,11 @@
+body {
+  color: #000;
+  -webkit-transition: all ease slow;
+  -moz-transition: all ease slow;
+  -o-transition: all ease slow;
+  -ms-transition: all ease slow;
+  transition: all ease slow;
+}
+aside {
+  background: #fff;
+}
