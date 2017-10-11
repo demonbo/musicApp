@@ -131,6 +131,11 @@ footer {
   border: 1px solid #ddd;
 }
 
+/* toggle */
+.sidebar-nav {
+  padding-top: 10px;
+}
+
 /*======== addSong ==========*/
 
 #newSong, #newArtist {

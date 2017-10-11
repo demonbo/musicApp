@@ -20,23 +20,54 @@ MEDIA QUERIES
   }
 
 
-  .left-menu {
+  /*.left-menu {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*!*width: 50%;*!*/
+    /*background: #fff;*/
+    /*z-index:999;*/
+    /*padding: 0;*/
+  /*}*/
+
+  /*#navCollapse {*/
+    /*width: 200px;*/
+    /*transition: left .3s;*/
+  /*}*/
+
+  /* toggle */
+  #wrapper {
+    padding-left: 0;
+    transition: all 0.5s ease;
+  }
+
+  #wrapper.toggled {
+    padding-left: 0px;
+  }
+
+  #sidebar-wrapper {
+    z-index: 1000;
     position: absolute;
-    left: 0;
-    /*width: 50%;*/
-    background: #fff;
-    z-index:999;
+    left: 200px;
     padding: 0;
-
-
+    width: 0;
+    height: 100%;
+    margin-left: -200px;
+    overflow-y: auto;
+    background: #fff;
+    transition: all 0.5s ease;
   }
 
-  #navCollapse {
+  #wrapper.toggled #sidebar-wrapper {
     width: 200px;
-    transition: left .3s;
-
   }
-
+  .sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
   /*======= addSong =========*/
   .panel-body .form-label:first-child {
