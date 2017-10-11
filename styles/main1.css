@@ -92,9 +92,36 @@ header h1 {
   float: right;
 }
 
-/* song table */
+/* table */
 .song-table {
   font-size: .9em;
+}
+
+.div-table {
+  display: table;
+  width: 100%;
+  padding: 0;
+  /*margin: 0;*/
+}
+.div-tr {
+  display: table-row;
+  width: 100%;
+  /*padding: 5px;*/
+}
+.div-th,
+.div-td {
+  display: table-cell;
+  padding: 5px 10px;
+  /*margin-top: 10px;*/
+  border-bottom: 1px solid #ddd;
+}
+
+.div-td {
+  margin-top: 5px;
+}
+
+#test {
+  margin-top: 0;
 }
 
 footer {
@@ -104,8 +131,16 @@ footer {
   border: 1px solid #ddd;
 }
 
+/*======== addSong ==========*/
 
+#newSong, #newArtist {
+  padding-left: 10px;
+  width: 80%;
+}
 
+.panel-body .form-label {
+  text-align: right;
+}
 
 
 

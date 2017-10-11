@@ -18,14 +18,60 @@ MEDIA QUERIES
     color: #000;
     padding: 0;
   }
+
+
   .left-menu {
     position: absolute;
     left: 0;
     /*width: 50%;*/
-    background: #b7b7b7;
+    background: #fff;
     z-index:999;
     padding: 0;
+
+
+  }
+
+  #navCollapse {
+    width: 200px;
+    transition: left .3s;
+
   }
 
 
+  /*======= addSong =========*/
+  .panel-body .form-label:first-child {
+    text-align: left;
+  }
+
+
+}
+
+@media screen and (max-width: 414px) {
+  .btn-hide {
+    display: none;
+  }
+
+  .content-bar {
+    text-align: center;
+    height: 73px;
+
+  }
+
+  .content-bar h3 {
+    float: none;
+    font-size: 1.3em;
+  }
+
+  .content-bar .action-bar {
+    float: none;
+    /*text-align: center;*/
+  }
+  .btn-responsive {
+    padding:5px 10px;
+    font-size: 90%;
+    line-height: 1.2;
+  }
+  .btn-responsive span {
+    font-size: 90%;
+  }
 }
