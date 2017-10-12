@@ -29,23 +29,34 @@ body {
 header {
   /*position: relative;*/
   border: 1px solid #ddd;
+  transition: all 0.5s ease;
+
 }
 
 .logo, .btnDrop {
   float: left;
   font-size: 4em;
   margin: 30px;
+  transition: all 0.5s ease;
+
 }
 
 .btnDrop {
   display: none;
+
 }
 
 header h1 {
   margin: 40px auto;
+  transition: all 0.5s ease;
+
 }
 
 /* body */
+#wrapper {
+  transition: all 0.5s ease;
+}
+
 .main-content {
   border: 1px solid #ddd;
   padding: 0;
@@ -69,7 +80,7 @@ header h1 {
 }
 
 .right-nav {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .content {
@@ -120,8 +131,8 @@ header h1 {
   margin-top: 5px;
 }
 
-#test {
-  margin-top: 0;
+.test {
+  margin-top: 0 !important;
 }
 
 footer {
@@ -133,7 +144,7 @@ footer {
 
 /* toggle */
 .sidebar-nav {
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 /*======== addSong ==========*/
