@@ -16,23 +16,23 @@
 <!-- header -->
 <header class="container">
   <div class="row">
-    <button type="button" class="btnDrop navbar-toggle" data-toggle="collapse" data-target="#navCollapse">
+    <a href="#menu-toggle" class="btnDrop btn navbar-toggle" id="menu-toggle">
       <i class="glyphicon glyphicon-menu-hamburger"></i>
-    </button>
+    </a>
     <a href="index1.html"><i class="logo glyphicon glyphicon-headphones"></i></a>
     <h1>Music Manager</h1>
   </div>
 </header>
 <!-- main-content -->
-<div class="main-content container clearfix">
+<div id="wrapper" class="main-content container clearfix">
   <!-- left -->
-  <aside class="left-menu col-sm-3">
-    <div class="left-nav navbar-collapse collapse" id="navCollapse">
-      <ul class="nav nav-pills nav-stacked">
+  <aside id="sidebar-wrapper" class="left-menu col-sm-3">
+    <!--<div class="left-nav navbar-collapse collapse" id="navCollapse">-->
+      <ul class="sidebar-nav nav nav-pills nav-stacked">
         <li class="active"><a href="#">Songs</a></li>
         <li><a href="#">Playlists</a></li>
       </ul>
-    </div>
+    <!--</div>-->
   </aside>
   <!-- right -->
   <aside class="right-content col-sm-9">
@@ -227,5 +227,11 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="scripts/jquery.min.js"></script>
 <script src="scripts/bootstrap.js"></script>
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 </body>
 </html>
