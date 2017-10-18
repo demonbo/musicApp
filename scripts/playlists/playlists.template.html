@@ -1,0 +1,76 @@
+<div class="view">
+  <ul class="right-nav breadcrumb">
+    <li><a href="#!/songs">Home</a></li>
+    <li class="active">Playlists</li>
+  </ul>
+  <div class="content">
+    <div class="content-bar">
+      <h3>Playlists</h3>
+      <div class="action-bar">
+        <a href="#!/create-playlist" class="btn btn-success btn-responsive">
+          <i class="glyphicon glyphicon-plus"></i>
+          <span>Add</span>
+        </a>
+        <a href="#" class="btn btn-danger disabled btn-responsive">
+          <i class="glyphicon glyphicon-trash"></i>
+          <span>Delete</span>
+        </a>
+        <a href="#" class="btn btn-primary btn-responsive">
+          <i class="glyphicon glyphicon-search"></i>
+          <span>Search</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- start div table-->
+    <div class="panel panel-default clearfix">
+      <div class="panel-body">
+        <div class="div-table song-table">
+          <div class="div-tr">
+            <div class="div-th text-center"><input class="test" type="checkbox"></div>
+            <div class="div-th text-center">ID</div>
+            <div class="div-th">Name</div>
+            <div class="div-th">Artist</div>
+            <div class="div-th text-center">Actions</div>
+          </div>
+          <div class="div-tr">
+            <div class="div-td text-center"><input class="test" type="checkbox"></div>
+            <div class="div-td text-center">1</div>
+            <div id="song1" class="div-td">Radioactive</div>
+            <div id="name1" class="div-td">Imagine Dragon</div>
+            <div class="div-td text-center">
+              <a href="#!/edit-playlist" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+              <a href="#" class="btn btn-danger btn-sm btn-hide"
+                 onclick="alert('Are you want to delete this song?')"><i class="glyphicon glyphicon-trash"></i>
+                Delete</a>
+            </div>
+          </div>
+          <div class="div-tr">
+            <div class="div-td text-center"><input class="test" type="checkbox"></div>
+            <div class="div-td text-center">1</div>
+            <div class="div-td">Radioactive</div>
+            <div class="div-td">Imagine Dragon</div>
+            <div class="div-td text-center">
+              <a href="#" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+              <a href="#" class="btn btn-danger btn-sm btn-hide"><i class="glyphicon glyphicon-trash"></i>
+                Delete</a>
+            </div>
+          </div>
+          <div class="div-tr">
+            <div class="div-td text-center"><input class="test" type="checkbox"></div>
+            <div class="div-td text-center">1</div>
+            <div class="div-td">Radioactive</div>
+            <div class="div-td">Imagine Dragon</div>
+            <div class="div-td text-center">
+              <a href="#" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+              <a href="#" class="btn btn-danger btn-sm btn-hide"><i class="glyphicon glyphicon-trash"></i>
+                Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end table -->
+  </div>
+</div>
+
