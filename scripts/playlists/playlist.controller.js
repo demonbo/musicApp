@@ -1,18 +1,18 @@
 angular.module("musicApp")
-    .controller("SongCtrl", ["$scope", "$location", "mySongFactory", "$element",
-      function ($scope, $location, mySongFactory, $element) {
-        $scope.songFactory = mySongFactory;
+    .controller("ListCtrl", ["$scope", "$location", "myListFactory", "$element",
+      function ($scope, $location, myListFactory, $element) {
+        $scope.listFactory = myListFactory;
         $scope.showModal = false;
         /* custom */
 
-        $scope.dataSong = mySongFactory.getSong();
+        $scope.dataList = myListFactory.getList();
 
         $scope.disDeleteBtn = {value: true};
         $scope.chkAll = {value: false};
         /* */
 
-        $scope.getSelectedSongId = function (item) {
-          $scope.selectedSongId = item.id;
+        $scope.getSelectedListId = function (item) {
+          $scope.selectedListId = item.id;
           $element.find('#modalDel').modal('show');
           // $('#modalDel').modal('show');
           $scope.showModal = true;
@@ -20,27 +20,27 @@ angular.module("musicApp")
 
         $scope.showModalMulti = function () {
           var c = 0;
-          for (var i = 0; i < $scope.dataSong.length; i++) {
-            if ($scope.dataSong[i].selected === true) {
+          for (var i = 0; i < $scope.dataList.length; i++) {
+            if ($scope.dataList[i].selected === true) {
               c++;
             }
           }
           if (c >= 2) {
-            angular.element('#songView').find('#modalMultiDel').modal('show');
+            angular.element('#listView').find('#modalMultiDel').modal('show');
           } else {
-            angular.element('#songView').find('#modalDel').modal('show');
+            angular.element('#listView').find('#modalDel').modal('show');
           }
         };
 
-        $scope.delSong = function () {
-          if (typeof $scope.selectedSongId !== 'undefined') {
-            $scope.songFactory.removeSong($scope.selectedSongId);
-            $scope.selectedSongId = undefined;
+        $scope.delList = function () {
+          if (typeof $scope.selectedListId !== 'undefined') {
+            $scope.listFactory.removeList($scope.selectedListId);
+            $scope.selectedListId = undefined;
           } else {
             $scope.delMulti();
           }
           $scope.disDeleteBtn.value = true;
-          $scope.dataSong = $scope.songFactory.getSong();
+          $scope.dataList = $scope.listFactory.getList();
           $scope.cancelAction();
         };
 
@@ -49,14 +49,14 @@ angular.module("musicApp")
         };
 
         $scope.delMulti = function () {
-          for (var i = 0; i < $scope.dataSong.length; i++) {
-            if ($scope.dataSong[i].selected === true) {
-              $scope.songFactory.removeSong($scope.dataSong[i].id);
+          for (var i = 0; i < $scope.dataList.length; i++) {
+            if ($scope.dataList[i].selected === true) {
+              $scope.listFactory.removeList($scope.dataList[i].id);
             }
           }
         };
 
-        $scope.checkSong = function (data) {
+        $scope.checkList = function (data) {
           var bool = $scope.selectItem(data);
           $scope.disDeleteBtn.value = !bool;
           return bool;
@@ -80,7 +80,7 @@ angular.module("musicApp")
         $scope.indeterminateCheckBox = function (data) {
           var checkBoxInd = $element.find('#checkboxAll')[0];
           if (typeof checkBoxInd !== 'undefined') {
-            var hasCheck = $scope.checkSong(data);
+            var hasCheck = $scope.checkList(data);
             var hasInd = $scope.indeterminateCheck(data);
             if (hasInd && hasCheck) {
               $scope.chkAll.value = true;
@@ -93,7 +93,7 @@ angular.module("musicApp")
               checkBoxInd.indeterminate = false;
             }
           } else {
-            $scope.checkSong(data);
+            $scope.checkList(data);
           }
         };
         //check one item
@@ -108,7 +108,7 @@ angular.module("musicApp")
 
         /*del one item function*/
         $scope.delItem = function () {
-          $scope.delSong();
+          $scope.delList();
           var checkBoxInd = $element.find('#checkboxAll')[0];
           if (typeof checkBoxInd !== 'undefined') {
             $scope.chkAll.value = false;

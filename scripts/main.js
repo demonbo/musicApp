@@ -38,21 +38,24 @@ angular.module("musicApp")
           // }
         };
 
-        //check All item
-        $scope.checkAllItem = function (status, data) {
-          status = !status;
-          if (status) {
-            angular.forEach(data, function (item) {
-              item.selected = true;
-            });
-            return false;
-          } else {
-            angular.forEach(data, function (item) {
-              item.selected = false;
-            });
-            return true;
-          }
-        };
+        // check All item
+        // $scope.checkAllItem = function (status, data) {
+        //   status = !status;
+        //   if (status) {
+        //     angular.forEach(data, function (item) {
+        //       item.selected = true;
+        //     });
+        //     return true;
+        //   }
+        //   else {
+        //     angular.forEach(data, function (item) {
+        //       item.selected = false;
+        //     });
+        //     return false;
+        //   }
+        // };
+
+
 
         // Go Somewhere
         $scope.goSomeWhere = function (place, id) {
@@ -60,6 +63,20 @@ angular.module("musicApp")
             $location.url(place);
           } else {
             $location.url(place + '/' + id);
+          }
+        };
+
+        /*Open Playlists Menu*/
+        $scope.listOpen = function () {
+          if ($location.url() === '/playlists' || $location.url().substr(0, 14) === '/edit-playlist' || $location.url() === '/create-playlist') {
+            return true;
+          }
+        };
+
+        /*Open Songs Menu*/
+        $scope.songOpen = function () {
+          if ($location.url() === '/songs' || $location.url().substr(0, 10) === '/edit-song' || $location.url() === '/create-song') {
+            return true;
           }
         };
 

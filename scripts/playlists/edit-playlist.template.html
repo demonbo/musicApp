@@ -1,1 +1,41 @@
-<div>Edit Playlist</div>
+<div class="view" ng-controller="EditListCtrl">
+  <ul class="right-nav breadcrumb">
+    <li><a href="#!/songs">Home</a></li>
+    <li class="active">Playlists</li>
+  </ul>
+  <div class="content">
+    <div class="content-bar">
+      <h3>Edit playlist</h3>
+    </div>
+    <div class="panel panel-default clearfix">
+      <!-- name edit -->
+      <div class="panel-body">
+        <div class="col-sm-4 col-xs-12 form-label">
+          <label for="nameLiEdited">*New name:</label>
+        </div>
+        <div class="col-sm-8 col-xs-12">
+          <input type="text" id="nameLiEdited" ng-model="nameLiEdited" ng-change="checkInput(nameLiEdited)">
+        </div>
+      </div>
+      <!-- Desc edit -->
+      <div class="panel-body">
+        <div class="col-sm-4 col-xs-12 form-label">
+          <label for="descEdited">New description:</label>
+        </div>
+        <div class="col-sm-8 col-xs-12">
+          <input type="text" id="descEdited" ng-model="descEdited">
+        </div>
+      </div>
+      <!-- footer -->
+      <div class="panel-footer text-right">
+        <button class="btn btn-success" ng-click="changeList(nameLiEdited, descEdited)" ng-disabled="disApplyBtn || !canEdit" disabled="disabled">
+          <i class="glyphicon glyphicon-plus"></i> Apply
+        </button>
+        <button class="btn btn-danger" onclick="location.href='#!/playlists'">
+          <i class="glyphicon glyphicon-remove"></i> Cancel
+        </button>
+      </div>
+    </div>
+    <!-- end div table -->
+  </div>
+</div>

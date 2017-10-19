@@ -2,12 +2,12 @@ angular.module("musicApp").factory("mySongFactory", [function() {
   var factory = {};
 
   var mySongs = [
-    {id: "1", name: "Skyfall", artist: "Adele"},
-    {id: "2", name: "Let it go", artist: "Idina Menzel"},
-    {id: "3", name: "Mot coi di ve", artist: "Khanh Ly"},
-    {id: "4", name: "Mad World", artist: "Adam Lambert"},
-    {id: "5", name: 'Rolling in the deep', artist: "Adele"},
-    {id: "6", name: "Radioactive", artist: "Imagine Dragon"},
+    {'id': 1, 'name': "Skyfall", 'artist': "Adele"},
+    {'id': 2, 'name': "Let it go", 'artist': "Idina Menzel"},
+    {'id': 3, 'name': "Mot coi di ve", 'artist': "Khanh Ly"},
+    {'id': 4, 'name': "Mad World", 'artist': "Adam Lambert"},
+    {'id': 5, 'name': 'Rolling in the deep', 'artist': "Adele"},
+    {'id': 6, 'name': "Radioactive", 'artist': "Imagine Dragon"},
     {'id': 7, 'name': 'Let it go 2', 'artist': 'Idina Menzel'},
     {'id': 8, 'name': 'Let it go 3', 'artist': 'Idina Menzel'}
     // {'id': 9, 'name': 'Let it go 5', 'artist': 'Idina Menzel'},

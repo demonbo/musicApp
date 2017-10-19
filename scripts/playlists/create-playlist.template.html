@@ -1,6 +1,6 @@
-<div class="view">
+<div class="view" ng-controller="CreateListCtrl">
   <ul class="right-nav breadcrumb">
-    <li><a href="#!/playlists">Home</a></li>
+    <li><a href="#!/songs">Home</a></li>
     <li class="active">Playlists</li>
   </ul>
   <div class="content">
@@ -9,26 +9,26 @@
     </div>
     <div class="panel panel-default clearfix">
       <!-- name -->
-      <div class="panel-body">
-        <div class="col-sm-4 col-xs-12 form-label">
-          <label for="newPlaylist">*Name:</label>
+      <div class="panel-body"> <!--ng-class="{&#39;has-error&#39;: checkValid}"-->
+        <div class="col-sm-4 col-xs-12 form-label"> <!--ng-class="{'invalid': checkValid}"-->
+          <label for="newList">*Name:</label>
         </div>
         <div class="col-sm-8 col-xs-12">
-          <input type="text" id="newPlaylist">
+          <input type="text" id="newList" ng-model="newList" ng-change="checkInput(newList)">
         </div>
       </div>
       <!-- artist -->
       <div class="panel-body">
         <div class="col-sm-4 col-xs-12 form-label">
-          <label for="newDes">Description:</label>
+          <label for="newDesc">Description:</label>
         </div>
         <div class="col-sm-8 col-xs-12">
-          <input type="text" id="newDes">
+          <input type="text" id="newDesc" ng-model="newDesc">
         </div>
       </div>
       <!-- footer -->
       <div class="panel-footer text-right">
-        <button class="btn btn-success disabled"><i class="glyphicon glyphicon-plus"></i> Create</button>
+        <button class="btn btn-success" ng-click="createList(newList, newDesc)" ng-disabled="!canCreate" disabled="disabled"><i class="glyphicon glyphicon-plus"></i> Create</button>
         <button class="btn btn-danger" onclick="location.href='#!/playlists'"><i class="glyphicon glyphicon-remove"></i> Cancel</button>
       </div>
     </div>

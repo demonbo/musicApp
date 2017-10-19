@@ -147,9 +147,9 @@ footer {
   padding-top: 15px;
 }
 
-/*======== addSong ==========*/
+/*======== addSong, List ==========*/
 
-#newSong, #newArtist {
+#newSong, #newArtist, #newList, #newDesc {
   padding-left: 10px;
   width: 80%;
 }
@@ -163,6 +163,12 @@ footer {
 .div-table .div-tr.active {
   background: #f5f5f5;
 }
+
+
+div.div-tr.bg-primary:hover {
+  background-color: #337ab7;
+}
+
 
 .custom-modal {
   display: none;

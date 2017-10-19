@@ -20,7 +20,7 @@
     <a href="#menu-toggle" class="btnDrop btn navbar-toggle" id="menu-toggle">
       <i class="glyphicon glyphicon-menu-hamburger"></i>
     </a>
-    <a href=""><i class="logo glyphicon glyphicon-headphones"></i></a>
+    <a href="index1.html"><i class="logo glyphicon glyphicon-headphones"></i></a>
     <h1>Music Manager</h1>
   </div>
 </header>
@@ -29,8 +29,8 @@
   <!-- left -->
   <aside id="sidebar-wrapper" class="left-menu col-sm-3">
     <ul class="sidebar-nav nav nav-pills nav-stacked">
-      <li class="active"><a href="#!/songs">Songs</a></li>
-      <li><a href="#!/playlists">Playlists</a></li>
+      <li ng-class="{'active': songOpen()}"><a href="#!/songs">Songs</a></li>
+      <li ng-class="{'active': listOpen()}"><a href="#!/playlists">Playlists</a></li>
     </ul>
   </aside>
   <!-- right -->
@@ -55,10 +55,15 @@
 
 <script src="scripts/main.js"></script>
 
-<script src="scripts/songs/songs.controller.js"></script>
 <script src="scripts/songs/songs.factory.js"></script>
+<script src="scripts/songs/songs.controller.js"></script>
 <script src="scripts/songs/create-song.controller.js"></script>
 <script src="scripts/songs/edit-song.controller.js"></script>
+
+<script src="scripts/playlists/playlist.factory.js"></script>
+<script src="scripts/playlists/playlist.controller.js"></script>
+<script src="scripts/playlists/create-playlist.controller.js"></script>
+<script src="scripts/playlists/edit-playlist.controller.js"></script>
 
 
 

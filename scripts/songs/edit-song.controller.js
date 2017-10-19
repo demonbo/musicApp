@@ -7,8 +7,8 @@ angular.module('musicApp')
 
         var songId = +$routeparams.id;
 
-        var oldName = 'no found song';
-        var oldArtist = 'no found artist';
+        var oldName = 'song not found';
+        var oldArtist = 'artist not found';
         var exist = false;
 
         for (var i = 0; i < $scope.dataSong.length; i++) {
