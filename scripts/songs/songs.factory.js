@@ -12,7 +12,7 @@ angular.module("musicApp").factory("mySongFactory", [function() {
     {'id': 8, 'name': 'Let it go 3', 'artist': 'Idina Menzel'}
     // {'id': 9, 'name': 'Let it go 5', 'artist': 'Idina Menzel'},
     // {'id': 10, 'name': 'Let it go 6', 'artist': 'Idina Menzel'},
-    // {'id': 11, 'name': 'Let it go 7', 'artist': 'Idina Menzel'},
+    // {'id': 11, 'name': 'Let it go 7', 'artist': 'I dina Menzel'},
     // {'id': 12, 'name': 'Let it go 9', 'artist': 'Idina Menzel'},
     // {'id': 13, 'name': 'Let it go 1', 'artist': 'Idina Menzel'}
   ];
