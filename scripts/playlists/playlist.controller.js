@@ -1,7 +1,8 @@
 angular.module("musicApp")
-    .controller("ListCtrl", ["$scope", "$location", "myListFactory", "$element",
-      function ($scope, $location, myListFactory, $element) {
+    .controller("ListCtrl", ["$scope", "$location", "myListFactory", "$element","listSongFactory",
+      function ($scope, $location, myListFactory, $element, listSongFactory) {
         $scope.listFactory = myListFactory;
+        $scope.listSongFactory = listSongFactory;
         $scope.showModal = false;
         /* custom */
 
@@ -35,6 +36,7 @@ angular.module("musicApp")
         $scope.delList = function () {
           if (typeof $scope.selectedListId !== 'undefined') {
             $scope.listFactory.removeList($scope.selectedListId);
+            $scope.listSongFactory.deleteList($scope.selectedListId);
             $scope.selectedListId = undefined;
           } else {
             $scope.delMulti();
@@ -52,6 +54,7 @@ angular.module("musicApp")
           for (var i = 0; i < $scope.dataList.length; i++) {
             if ($scope.dataList[i].selected === true) {
               $scope.listFactory.removeList($scope.dataList[i].id);
+              $scope.listSongFactory.deleteList($scope.dataList[i].id);
             }
           }
         };

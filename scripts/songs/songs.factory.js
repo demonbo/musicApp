@@ -9,11 +9,11 @@ angular.module("musicApp").factory("mySongFactory", [function() {
     {'id': 5, 'name': 'Rolling in the deep', 'artist': "Adele"},
     {'id': 6, 'name': "Radioactive", 'artist': "Imagine Dragon"},
     {'id': 7, 'name': 'Let it go 2', 'artist': 'Idina Menzel'},
-    {'id': 8, 'name': 'Let it go 3', 'artist': 'Idina Menzel'}
-    // {'id': 9, 'name': 'Let it go 5', 'artist': 'Idina Menzel'},
-    // {'id': 10, 'name': 'Let it go 6', 'artist': 'Idina Menzel'},
+    {'id': 8, 'name': 'Let it go 3', 'artist': 'Idina Menzel'},
+    {'id': 9, 'name': 'Let it go 5', 'artist': 'Idina Menzel'},
+    {'id': 10, 'name': 'Let it go 6', 'artist': 'Idina Menzel'},
     // {'id': 11, 'name': 'Let it go 7', 'artist': 'I dina Menzel'},
-    // {'id': 12, 'name': 'Let it go 9', 'artist': 'Idina Menzel'},
+    // {'id': 12, 'name': 'Let it go 9', 'artist': 'Idina Menzel'}
     // {'id': 13, 'name': 'Let it go 1', 'artist': 'Idina Menzel'}
   ];
 
@@ -26,7 +26,7 @@ angular.module("musicApp").factory("mySongFactory", [function() {
   factory.addSong = function (name, artist) {
     var index = mySongs.length;
     if (index > 0) {
-      mySongs.push({'id': +mySongs[index - 1].id + 1 + '', 'name': name, 'artist': artist});
+      mySongs.push({'id': +mySongs[index - 1].id + 1 /*+ ''*/, 'name': name, 'artist': artist});
     } else {
       mySongs.push({'id': '1', 'name': name, 'artist': artist});
     }

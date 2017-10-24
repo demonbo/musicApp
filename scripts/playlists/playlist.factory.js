@@ -8,9 +8,8 @@
       {'id': 5, 'name': 'Playlist 16', 'desc': 'Nhac Trinh'},
       {'id': 6, 'name': 'Playlist 9', 'desc': 'JPop'},
       {'id': 7, 'name': 'Playlist 5', 'desc': 'Rock'},
-      {'id': 10, 'name': 'Playlist 10', 'desc': 'CPop'},
+      {'id': 8, 'name': 'Playlist 10', 'desc': 'CPop'},
       {'id': 13, 'name': 'Playlist 13', 'desc': 'Rap'}
-      
     ];
 
     factory.getList = function () {
@@ -20,10 +19,12 @@
     factory.addList = function (name, desc) {
       var index = myList.length;
       if (index > 0) {
-        myList.push({'id': +myList[index - 1].id + 1 + '', 'name': name, 'desc': desc});
+        myList.push({'id': +myList[index - 1].id + 1/* + ''*/, 'name': name, 'desc': desc});
+
       } else if (index === 0) {
         myList.push({'id': '1', 'name': name, 'desc': desc});
       }
+      return myList[index].id;
     };
 
     factory.removeList = function (id) {

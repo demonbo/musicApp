@@ -41,7 +41,7 @@ angular.module('musicApp')
                 // $location.path("#!/songs")
               }
             } else {
-              $scope.msgOut = 'songWarning';
+              $scope.msgOut = 'Song name can not be empty!';
               $scope.checkValid = true;
             }
           }
@@ -59,7 +59,7 @@ angular.module('musicApp')
               $scope.canEdit = true;
             }
           } else {
-            $scope.msgOut = 'songWarning';
+            $scope.msgOut = 'Song name can not be empty!';
             $scope.checkValid = true;
             $scope.createSuccess = false;
           }

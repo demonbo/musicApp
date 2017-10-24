@@ -7,35 +7,37 @@
     <div class="content-bar">
       <h3>Edit song</h3>
     </div>
-    <div class="panel panel-default clearfix">
-      <!-- name edit -->
-      <div class="panel-body">
-        <div class="col-sm-4 col-xs-12 form-label">
-          <label for="nameEdited">*New song title:</label>
+    <form class="form-horizontal edit-form">
+      <div class="panel panel-default">
+        <!-- name edit -->
+        <div class="panel-body form-group" ng-class="{'has-error': checkValid}">
+          <div class="col-sm-4 col-xs-12 form-label">
+            <label class="control-label" for="nameEdited">*New song title:</label>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <input type="text" class="form-control" id="nameEdited" ng-model="nameEdited" ng-change="checkInput(nameEdited)">
+            <div class="small" ng-class="{'text-danger': checkValid}">{{msgOut}}&nbsp;</div>
+          </div>
         </div>
-        <div class="col-sm-8 col-xs-12">
-          <input type="text" id="nameEdited" ng-model="nameEdited" ng-change="checkInput(nameEdited)">
+        <!-- artist edit -->
+        <div class="panel-body form-group">
+          <div class="col-sm-4 col-xs-12 form-label">
+            <label for="artistEdited">New artist:</label>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <input class="form-control" type="text" id="artistEdited" ng-model="artistEdited">
+          </div>
+        </div>
+        <!-- footer -->
+        <div class="panel-footer text-right">
+          <button class="btn btn-success" ng-click="changeSong(nameEdited, artistEdited)" ng-disabled="disApplyBtn || !canEdit" disabled="disabled">
+            <i class="glyphicon glyphicon-plus"></i> Apply
+          </button>
+          <button class="btn btn-danger" onclick="location.href='#!/songs'">
+            <i class="glyphicon glyphicon-remove"></i> Cancel
+          </button>
         </div>
       </div>
-      <!-- artist edit -->
-      <div class="panel-body">
-        <div class="col-sm-4 col-xs-12 form-label">
-          <label for="artistEdited">New artist:</label>
-        </div>
-        <div class="col-sm-8 col-xs-12">
-          <input type="text" id="artistEdited" ng-model="artistEdited">
-        </div>
-      </div>
-      <!-- footer -->
-      <div class="panel-footer text-right">
-        <button class="btn btn-success" ng-click="changeSong(nameEdited, artistEdited)" ng-disabled="disApplyBtn || !canEdit" disabled="disabled">
-          <i class="glyphicon glyphicon-plus"></i> Apply
-        </button>
-        <button class="btn btn-danger" onclick="location.href='#!/songs'">
-          <i class="glyphicon glyphicon-remove"></i> Cancel
-        </button>
-      </div>
-    </div>
-    <!-- end div table -->
+    </form>
   </div>
 </div>

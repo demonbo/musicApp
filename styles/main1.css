@@ -58,13 +58,14 @@ header h1 {
 }
 
 .main-content {
+  /*min-height: 100vh;*/
   border: 1px solid #ddd;
   padding: 0;
 }
 
 /* left */
 .left-menu {
-  border-right: 1px solid #ddd;
+  /*border-right: 1px solid #ddd;*/
   height: 100vh;
 }
 .left-nav {
@@ -73,8 +74,8 @@ header h1 {
 
 /* right */
 .right-content {
-  /*border-left: 1px solid #ddd;*/
-  height: 100vh;
+  border-left: 1px solid #ddd;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
@@ -106,12 +107,16 @@ header h1 {
 /* table */
 .song-table {
   font-size: .9em;
+  /*height: 50px;*/
+  /*overflow-y: auto;*/
 }
 
 .div-table {
   display: table;
   width: 100%;
   padding: 0;
+
+
   /*margin: 0;*/
 }
 .div-tr {
@@ -147,12 +152,28 @@ footer {
   padding-top: 15px;
 }
 
+
+
 /*======== addSong, List ==========*/
 
-#newSong, #newArtist, #newList, #newDesc {
+.edit-form .panel-body {
+  margin-bottom: 0;
+  padding-bottom: 5px;
+}
+
+.edit-form .panel-body:nth-child(2) {
+  padding-top: 5px;
+  padding-bottom: 25px;
+}
+
+.edit-form .panel-body input[type=text] {
   padding-left: 10px;
   width: 80%;
 }
+/*#newSong, #newArtist, #newList, #newDesc {*/
+  /*padding-left: 10px;*/
+  /*width: 80%;*/
+/*}*/
 
 .panel-body .form-label {
   text-align: right;

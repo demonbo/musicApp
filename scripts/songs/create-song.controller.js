@@ -13,7 +13,7 @@ angular.module('musicApp')
             $scope.goSomeWhere('/songs');
             // $location.path("#!/songs")
           } else {
-            $scope.msgOut = 'songWarning';
+            $scope.msgOut = 'Song name can not be empty!';
             $scope.checkValid = true;
             $scope.createSuccess = false;
           }
@@ -26,7 +26,7 @@ angular.module('musicApp')
             $scope.createSuccess = false;
             $scope.canCreate = true;
           } else {
-            $scope.msgOut = 'songWarning';
+            $scope.msgOut = 'Song name can not be empty!';
             $scope.checkValid = true;
             $scope.createSuccess = false;
             $scope.canCreate = false;
