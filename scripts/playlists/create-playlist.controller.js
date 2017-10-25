@@ -71,13 +71,13 @@ angular.module('musicApp').controller('CreateListCtrl', ['$scope', '$location', 
     };
 
     //check one item
-    $scope.checkItem = function (item, data, event, isRowClick) {
+    $scope.checkItem = function (item, data, $event, isRowClick) {
 
       if (isRowClick) {
         item.selected = !item.selected;
       }
       $scope.indeterminateCheckBox(data);
-      event.stopPropagation();
+      $event.stopPropagation();
     };
 
     $scope.checkSong = function (data) {

@@ -2,7 +2,7 @@ angular.module("musicApp")
     .controller("SongCtrl", ["$scope", "$location", "mySongFactory", "$element",
       function ($scope, $location, mySongFactory, $element) {
         $scope.songFactory = mySongFactory;
-        $scope.showModal = false;
+        // $scope.showModal = false;
         /* custom */
 
         $scope.dataSong = mySongFactory.getSong();
@@ -15,7 +15,7 @@ angular.module("musicApp")
           $scope.selectedSongId = item.id;
           $element.find('#modalDel').modal('show');
           // $('#modalDel').modal('show');
-          $scope.showModal = true;
+          // $scope.showModal = true;
         };
 
         $scope.showModalMulti = function () {
@@ -97,13 +97,13 @@ angular.module("musicApp")
           }
         };
         //check one item
-        $scope.checkItem = function (item, data, event, isRowClick) {
+        $scope.checkItem = function (item, data, $event, isRowClick) {
 
           if (isRowClick) {
             item.selected = !item.selected;
           }
           $scope.indeterminateCheckBox(data);
-          event.stopPropagation();
+          $event.stopPropagation();
         };
 
         /*del one item function*/

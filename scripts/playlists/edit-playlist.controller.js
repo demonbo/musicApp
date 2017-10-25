@@ -4,6 +4,8 @@ angular.module('musicApp')
 
         $scope.listFactory = myListFactory;
         $scope.dataList = $scope.listFactory.getList();
+        // $scope.canRevert = false;
+        // $scope.disApplyBtn = true; //disabled button when true
 
         var listId = +$routeparams.id;
 
@@ -18,6 +20,7 @@ angular.module('musicApp')
             for (var j = 0; j < $scope.dataSong.length; j++) {
               if ($scope.dataSong[j].id === $scope.dataListSong[i].song) {
                 $scope.dataSong[j].selected = true;
+                $element.find('#checkboxAll')[0].indeterminate = true; /*test*/
                 break;
               }
             }
@@ -25,18 +28,6 @@ angular.module('musicApp')
         };
 
         $scope.dataChosenSong();
-
-        $scope.applySongToList = function () {
-          for (var i = 0; i < $scope.dataSong.length; i++) {
-            if ($scope.dataSong[i].selected === true) {
-              $scope.listSongFactory.assignListSong(listId, $scope.dataSong[i].id);
-            } else {
-              $scope.listSongFactory.removeListSong(listId, $scope.dataSong[i].id);
-            }
-          }
-          $scope.dataChosenSong();
-          $scope.goSomeWhere("/playlists");
-        };
 
         var oldName = 'playlist not found';
         var oldDesc = 'description not found';
@@ -51,12 +42,63 @@ angular.module('musicApp')
           }
         }
 
+
+
+
+        $scope.applySongToList = function () {
+          for (var i = 0; i < $scope.dataSong.length; i++) {
+            if ($scope.dataSong[i].selected === true) {
+              $scope.listSongFactory.assignListSong(listId, $scope.dataSong[i].id);
+            } else {
+              $scope.listSongFactory.removeListSong(listId, $scope.dataSong[i].id);
+            }
+          }
+          $scope.dataChosenSong();
+          $scope.goSomeWhere("/playlists");
+        };
+
+        $scope.revertList = function () {
+          $scope.dataChosenSong();
+          checkRevert();
+        };
+
+        //  checkRevert
+        function checkRevert(){
+          var selectedCount = 0;
+          var found;
+
+          $scope.canRevert = false;
+          // $scope.disApplyBtn = true; /**/
+
+          for (var i = 0; i < $scope.dataSong.length; i++) {
+            if ($scope.dataSong[i].selected) {
+              found = false;
+              selectedCount++;
+              for (var j = 0; j < $scope.dataListSong.length; j++) {
+                if ($scope.dataSong[i].id === $scope.dataListSong[j].song) {
+                  found = true;
+                }
+              }
+              if (!found) {
+                break;
+              }
+            }
+          }
+          if (!found || selectedCount != j) {
+            $scope.canRevert = true;
+            // $scope.disApplyBtn = false; /**/
+          }
+        }
+
+        // //  isDisable
+        // $scope.isDisabled = function isDisabled () {
+        //   var isDisabled = false;
+        //
+        // }
+
+
         $scope.nameLiEdited = oldName;
         $scope.descEdited = oldDesc;
-
-        // if (exist === false) {
-        //   $scope.disApplyBtn = true;
-        // }
 
         $scope.changeList = function (name, desc) {
           if (exist === true) {
@@ -82,6 +124,7 @@ angular.module('musicApp')
         $scope.checkInput = function (name) {
           $scope.canEdit = false;
 
+
           if (typeof name !== 'undefined' && name !== '') {
             $scope.msgOut = null;
             $scope.checkValid = false;
@@ -89,38 +132,47 @@ angular.module('musicApp')
 
             if (oldName !== name) {
               $scope.canEdit = true;
+
             }
           } else {
             $scope.msgOut = 'Playlist name can not be empty!';
             $scope.checkValid = true;
             $scope.createSuccess = false;
           }
+
+          // return $scope.canEdit;
         };
 
         /*SONG*/
         // $scope.songFactory = mySongFactory;
         // $scope.dataSong = mySongFactory.getSong();
         $scope.chkAll = {value: false};
+        // $element.find('#checkboxAll')[0].indeterminate = true;
+
+
 
         $scope.checkAll = function (status, data) {
           angular.forEach(data, function (item) {
             item.selected = status;
           });
+
         };
 
-        //check one item
-        $scope.checkItem = function (item, data, event, isRowClick) {
+        // check one item
+        $scope.checkItem = function (item, data, $event, isRowClick) {
 
           if (isRowClick) {
             item.selected = !item.selected;
           }
           $scope.indeterminateCheckBox(data);
-          event.stopPropagation();
+          $event.stopPropagation();
         };
 
+
+        //check song
         $scope.checkSong = function (data) {
           var bool = $scope.selectItem(data);
-          // dataChosenSong();
+          checkRevert();
           return bool;
         };
 

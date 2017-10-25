@@ -152,6 +152,12 @@ footer {
   padding-top: 15px;
 }
 
+/*search */
+.content .search-field {
+  /*padding-left: 10px;*/
+  margin: 0;
+  padding-right: 0;
+}
 
 
 /*======== addSong, List ==========*/

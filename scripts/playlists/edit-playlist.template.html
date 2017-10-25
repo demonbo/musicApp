@@ -10,7 +10,7 @@
     <form class="form-horizontal edit-form">
       <div class="panel panel-default">
         <!-- name edit -->
-        <div class="panel-body form-group">
+        <div class="panel-body form-group" ng-class="{'has-error': checkValid}">
           <div class="col-sm-4 col-xs-12 form-label">
             <label class="control-label" for="nameLiEdited">*New name:</label>
           </div>
@@ -36,7 +36,7 @@
               <span ng-show="toggle">Collapse the song list</span>
               <span ng-hide="toggle">Expand the song list</span>
             </a>
-            <a ng-style="{'margin': 0}" class="navbar-form pull-right" role="search">
+            <a class="navbar-form search-field pull-right" role="search">
               <div class="input-group">
                 <input ng-model="searchSong" class="form-control" placeholder="Search" name="q">
                 <div class="input-group-btn">
@@ -59,9 +59,9 @@
               <!--<div class="div-th text-center">Actions</div>-->
             </div>
             <div class="div-tr" ng-repeat="item in dataSong | filter: searchSong" ng-class="{'active': item.selected}"
-                 ng-click="checkItem(item, dataSong, $event,true); checkInput(item.selected)">
+                 ng-click="checkItem(item, dataSong, $event,true)">
               <div class="div-td text-center"><input class="test" type="checkbox" ng-model="item.selected"
-                                                     ng-click="checkItem(item, dataSong, $event,false); checkInput(item.selected)">
+                                                     ng-click="checkItem(item, dataSong, $event,false)"> <!--; checkInput(item.selected)-->
               </div>
               <div class="div-td text-center">{{item.id}}</div>
               <div id="song1" class="div-td">{{item.name}}</div>
@@ -71,8 +71,12 @@
         </div>
         <!-- footer -->
         <div class="panel-footer text-right">
-          <button class="btn btn-success" ng-click="changeList(nameLiEdited, descEdited); applySongToList()" ng-disabled="disApplyBtn || !canEdit" disabled="disabled">
+          <button class="btn btn-success" ng-click="changeList(nameLiEdited, descEdited); applySongToList()" ng-disabled="!canEdit && !canRevert" disabled="disabled">
+            <!--ng-disabled="disApplyBtn || (!canEdit && !canRevert)"-->
             <i class="glyphicon glyphicon-plus"></i> Apply
+          </button>
+          <button class="btn btn-warning" ng-click="revertList()" ng-disabled="!canRevert" disabled="disabled">
+            <i class="glyphicon glyphicon-refresh"></i> Revert
           </button>
           <button class="btn btn-danger" ng-click="goSomeWhere('/playlists')"> <!--onclick="location.href='#!/playlists'"-->
             <i class="glyphicon glyphicon-remove"></i> Cancel

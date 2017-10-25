@@ -11,11 +11,11 @@
           <i class="glyphicon glyphicon-plus"></i>
           <span>Add</span>
         </a>
-        <a class="btn btn-danger btn-responsive" ng-disabled="disDeleteBtn.value" disabled="disabled"
+        <button class="btn btn-danger btn-responsive" ng-disabled="disDeleteBtn.value" disabled="disabled"
            ng-click="showModalMulti()">
           <i class="glyphicon glyphicon-trash"></i>
           <span>Delete</span>
-        </a>
+        </button>
         <!--<a href="" class="btn btn-primary btn-responsive">-->
         <!--<i class="glyphicon glyphicon-search"></i>-->
         <!--<span>Search</span>-->
@@ -24,7 +24,7 @@
           <!--<input class="search" placeholder="Search" ng-model="searchList" id="search-list">-->
           <!--<label for="search-list"><i class="glyphicon glyphicon-search"></i></label>-->
         <!--</a>-->
-        <a ng-style="{'padding-right':0}" class="navbar-form" role="search">
+        <a class="navbar-form search-field" role="search">
           <div class="input-group">
             <input ng-model="searchList" type="text" class="form-control" placeholder="Search" name="q">
             <div class="input-group-btn">
@@ -68,8 +68,7 @@
         </div> <!--end div-table-->
 
         <!--modal del-->
-        <div class="modal fade custom-modal" id="modalDel" aria-hidden="true"
-             role="dialog" ng-class="{'in': showModal, 'show-modal': showModal}">
+        <div class="modal fade" id="modalDel" aria-hidden="true" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
