@@ -15,7 +15,6 @@ angular.module('musicApp')
 
           $scope.songFactory = mySongFactory;
           $scope.dataSong = $scope.songFactory.getSong();
-
           for (var i = 0; i < $scope.dataListSong.length; i++) {
             for (var j = 0; j < $scope.dataSong.length; j++) {
               if ($scope.dataSong[j].id === $scope.dataListSong[i].song) {
@@ -60,6 +59,7 @@ angular.module('musicApp')
         $scope.revertList = function () {
           $scope.dataChosenSong();
           checkRevert();
+          $scope.canEdit = false; /*use for checkall*/
         };
 
         //  checkRevert
@@ -155,7 +155,8 @@ angular.module('musicApp')
           angular.forEach(data, function (item) {
             item.selected = status;
           });
-
+          $scope.canEdit = true; /**/
+          $scope.canRevert = true; /**/
         };
 
         // check one item

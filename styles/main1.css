@@ -95,13 +95,16 @@ header h1 {
 }
 
 .content-bar h3 {
-  margin-top: 10px;
+  margin-top: 0;
   float: left;
+  line-height: 55px;
 }
 
 .content-bar .action-bar {
   margin-top: 10px;
   float: right;
+  position: relative;
+  padding-left: 0;
 }
 
 /* table */
@@ -153,10 +156,46 @@ footer {
 }
 
 /*search */
-.content .search-field {
+.action-bar .search-field {
   /*padding-left: 10px;*/
+  position: relative;
   margin: 0;
+  padding-left: 0;
   padding-right: 0;
+  display: inline-block;
+}
+
+.action-bar .search-field .search {
+  min-width: 200px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.action-bar .search-field .search:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.search-field .icon1 {
+  position: absolute;
+  height: 34px;
+  padding: 6px 12px;
+  right: 0;
+  pointer-events: none;
+  color: #555;
 }
 
 
@@ -205,6 +244,17 @@ div.div-tr.bg-primary:hover {
   display: block;
 }
 
+/* table */
+.div-th .th-child {
+  border-bottom: none;
+  width: 49%;
+  display: inline-block;
+}
+.div-td .td-child {
+  border-bottom: none;
+  width: 49%;
+  display: inline-block;
+}
 
 
 

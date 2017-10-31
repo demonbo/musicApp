@@ -33,7 +33,7 @@
           <button class="btn btn-success" ng-click="changeSong(nameEdited, artistEdited)" ng-disabled="disApplyBtn || !canEdit" disabled="disabled">
             <i class="glyphicon glyphicon-plus"></i> Apply
           </button>
-          <button class="btn btn-danger" onclick="location.href='#!/songs'">
+          <button class="btn btn-danger" ng-click="goSomeWhere('/songs')">
             <i class="glyphicon glyphicon-remove"></i> Cancel
           </button>
         </div>

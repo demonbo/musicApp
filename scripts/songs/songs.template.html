@@ -7,47 +7,39 @@
     <div class="content-bar">
       <h3>Songs</h3>
       <div class="action-bar">
-        <a href="#!/create-song" class="btn btn-success btn-responsive">
+        <button ng-click="goSomeWhere('/create-song')" class="btn btn-success btn-sm1">
           <i class="glyphicon glyphicon-plus"></i>
-          <span>Add</span>
-        </a>
-        <button class="btn btn-danger btn-responsive" ng-disabled="disDeleteBtn.value" ng-click="showModalMulti()" disabled="disabled">
-          <i class="glyphicon glyphicon-trash"></i>
-          <span>Delete</span>
+          <span class="hide-on-small">Add</span>
         </button>
-        <!--<a href="" class="btn btn-primary btn-responsive">-->
-        <!--<i class="glyphicon glyphicon-search"></i>-->
-        <!--<span>Search</span>-->
-        <!--</a>-->
-
-        <!--<a class="search-field">-->
+        <button class="btn btn-danger btn-sm1" ng-disabled="disDeleteBtn.value" ng-click="showModalMulti()" disabled="disabled">
+          <i class="glyphicon glyphicon-trash"></i>
+          <span class="hide-on-small">Delete</span>
+        </button>
+        <!--search field-->
+        <!--<div class="search-field">-->
           <!--<input class="search" placeholder="Search" ng-model="searchSong" id="search-song">-->
-          <!--<label for="search-song"><i class="glyphicon glyphicon-search"></i></label>-->
-        <!--</a>-->
-        <!--search box-->
-
-          <a class="navbar-form search-field" role="search">
-            <div class="input-group">
-              <input ng-model="searchSong" type="text" class="form-control" placeholder="Search" name="q">
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-              </div>
-            </div>
-          </a>
+          <!--<label class="" for="search-song"><i class="glyphicon glyphicon-search"></i></label>-->
+        <!--</div>-->
+        <div class="search-field">
+          <label for="search-song"><i class="icon1 glyphicon glyphicon-search"></i></label>
+          <input class="search" placeholder="Search" ng-model="searchSong" id="search-song">
+        </div>
 
       </div>
     </div>
 
     <!-- start div table-->
-    <div class="panel panel-default clearfix">
+    <div class="panel panel-default clearfix" >
       <div class="panel-body">
         <div class="div-table song-table">
-          <div class="div-tr bg-primary text-uppercase">
+          <div class="div-tr bg-info">
             <div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"
                                                    ng-click="checkAll(chkAll.value, dataSong)"></div>
             <div class="div-th text-center">ID</div>
-            <div class="div-th">Name</div>
-            <div class="div-th">Artist</div>
+            <div class="div-th">
+              <div class="div-th th-child">Name</div>
+              <div class="div-th th-child">Artist</div>
+            </div>
             <div class="div-th text-center">Actions</div>
           </div>
           <div class="div-tr" ng-repeat="item in dataSong | filter: searchSong" ng-class="{'active': item.selected}"
@@ -55,17 +47,19 @@
             <div class="div-td text-center"><input class="test" type="checkbox" ng-model="item.selected"
                                                    ng-click="checkItem(item, dataSong, $event,false)"></div>
             <div class="div-td text-center">{{item.id}}</div>
-            <div id="song1" class="div-td">{{item.name}}</div>
-            <div id="name1" class="div-td">{{item.artist}}</div>
+            <div class="div-td">
+              <div class="div-td td-child">{{item.name}}</div>
+              <div class="div-td td-child">{{item.artist}}</div>
+            </div>
             <div class="div-td text-center">
-              <a class="btn btn-warning btn-sm" ng-click="goSomeWhere(&#39;/edit-song&#39;, item.id)">
+              <button class="btn btn-warning btn-sm btn-responsive" ng-click="goSomeWhere(&#39;/edit-song&#39;, item.id)">
                 <i class="glyphicon glyphicon-pencil"></i>
-                Edit
-              </a>
-              <a class="btn btn-danger btn-sm btn-hide" ng-click="getSelectedSongId(item); $event.stopPropagation();" >
+                <span class="visible-lg-inline visible-md-inline">Edit</span>
+              </button>
+              <button class="btn btn-danger btn-sm btn-hide btn-responsive" ng-click="getSelectedSongId(item); $event.stopPropagation();" >
                 <i class="glyphicon glyphicon-trash"></i>
-                Delete
-              </a>
+                <span class="visible-md-inline visible-lg-inline">Delete</span>
+              </button>
             </div>
           </div>
         </div> <!--end div-table-->

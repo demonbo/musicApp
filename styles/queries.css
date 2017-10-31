@@ -3,54 +3,30 @@ MEDIA QUERIES
 ==================*/
 
 @media screen and (max-width: 768px) {
-
-
   header h1 {
     font-size: 1.5em;
     transition: all 0.5s ease;
-
   }
   .logo {
     font-size: 2.5em;
     margin: 30px 15px;
     transition: all 0.5s ease;
-
   }
-
   .btnDrop {
     display: block;
     font-size: 1.5em;
     margin: 40px 0 40px 20px;
     color: #000;
     padding: 0;
-
   }
-
-
-  /*.left-menu {*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*!*width: 50%;*!*/
-    /*background: #fff;*/
-    /*z-index:999;*/
-    /*padding: 0;*/
-  /*}*/
-
-  /*#navCollapse {*/
-    /*width: 200px;*/
-    /*transition: left .3s;*/
-  /*}*/
-
-  /* toggle */
+   /* toggle */
   #wrapper {
     padding-left: 0;
     transition: all 0.5s ease;
   }
-
   #wrapper.toggled {
     padding-left: 0;
   }
-
   #sidebar-wrapper {
     z-index: 1000;
     position: absolute;
@@ -63,53 +39,111 @@ MEDIA QUERIES
     background: #fff;
     transition: all 0.5s ease;
   }
-
   #wrapper.toggled #sidebar-wrapper {
-    width: 200px;
+    min-width: 200px;
+    border-right: 2px solid #ddd;
   }
   .sidebar-nav {
     position: absolute;
-    top: 0;
-    width: 250px;
+    top: 10px;
+    width: 200px;
     margin: 0;
-    padding: 0;
+    padding: 0 10px;
     list-style: none;
   }
-
   /*======= addSong =========*/
   .panel-body .form-label:first-child {
     text-align: left;
   }
 
+  .right-nav {
+    display: none;
+  }
 
-}
+  /*btn*/
+  .btn-sm1 {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
 
-@media screen and (max-width: 414px) {
+
+  .div-table {
+    font-size: 0.9em;
+  }
+
+} /*end 768px*/
+
+/*list show*/
+@media screen and (max-width: 630px) {
+  .div-table .div-th {
+    display: none;
+  }
+  .div-td .td-child {
+    display: table-cell;
+  }
+  .div-td .td-child:first-child {
+    font-weight: bold;
+  }
+
+  /*.action-bar .search-field .search {*/
+    /*width: 200px;*/
+  /*}*/
+}  /*end 620px*/
+
+@media screen and (max-width: 531px) {
+
+  .hide-on-small{
+    display: none;
+  }
   .btn-hide {
     display: none;
   }
 
   .content-bar {
     text-align: center;
-    height: 73px;
+    /*height: 73px;*/
 
   }
 
   .content-bar h3 {
-    float: none;
+    /*float: none;*/
     font-size: 1.3em;
   }
 
-  .content-bar .action-bar {
-    float: none;
-    /*text-align: center;*/
+
+  .div-table {
+    font-size: 0.8em;
   }
+
   .btn-responsive {
-    padding:5px 10px;
-    font-size: 90%;
-    line-height: 1.2;
+    padding: 2px 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
   }
-  .btn-responsive span {
-    font-size: 90%;
+
+  .action-bar .search-field .search {
+    min-width: 150px;
+    font-size: 12px;
   }
-}
+  .search-field .icon1 {
+    font-size: small;
+    padding: 9px 12px;
+  }
+
+} /*end 531*/
+
+@media screen and (max-width: 409px) {
+  .content-bar h3 {
+    display: none;
+  }
+  .div-table {
+    /*font-size: 0.7em;*/
+  }
+
+  } /*end 409*/
+
+
+/*test responsive hidden bootstrap*/
