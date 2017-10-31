@@ -40,7 +40,7 @@ MEDIA QUERIES
     transition: all 0.5s ease;
   }
   #wrapper.toggled #sidebar-wrapper {
-    min-width: 200px;
+    width: 200px;
     border-right: 2px solid #ddd;
   }
   .sidebar-nav {

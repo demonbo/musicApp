@@ -41,8 +41,10 @@
             <div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"
                                                    ng-click="checkAll(chkAll.value, dataList)"></div>
             <div class="div-th text-center">ID</div>
-            <div class="div-th">Name</div>
-            <div class="div-th">Description</div>
+            <div class="div-th">
+              <div class="div-th th-child">Name</div>
+              <div class="div-th th-child">Artist</div>
+            </div>
             <div class="div-th text-center">Actions</div>
           </div>
           <div class="div-tr" ng-repeat="item1 in dataList | filter: searchList" ng-class="{'active': item1.selected}"
@@ -50,8 +52,10 @@
             <div class="div-td text-center"><input class="test" type="checkbox" ng-model="item1.selected"
                                                    ng-click="checkItem(item1, dataList, $event,false)"></div>
             <div class="div-td text-center">{{item1.id}}</div>
-            <div class="div-td">{{item1.name}}</div>
-            <div class="div-td">{{item1.desc}}</div>
+            <div class="div-td">
+              <div class="div-td td-child">{{item1.name}}</div>
+              <div class="div-td td-child">{{item1.desc}}</div>
+            </div>
             <div class="div-td text-center">
               <button class="btn btn-warning btn-sm btn-responsive" ng-click="goSomeWhere(&#39;/edit-playlist&#39;, item1.id)">
                 <i class="glyphicon glyphicon-pencil"></i>
