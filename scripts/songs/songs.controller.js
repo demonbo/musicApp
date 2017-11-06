@@ -1,9 +1,8 @@
 angular.module("musicApp")
-    .controller("SongCtrl", ["$scope", "$location", "mySongFactory", "$element",
-      function ($scope, $location, mySongFactory, $element) {
+    .controller("SongCtrl", ["$scope", "$location", "mySongFactory", "$element","$timeout",
+      function ($scope, $location, mySongFactory, $element, $timeout) {
         $scope.songFactory = mySongFactory;
         // $scope.showModal = false;
-        /* custom */
 
         $scope.dataSong = mySongFactory.getSong();
 
@@ -13,9 +12,11 @@ angular.module("musicApp")
 
         $scope.getSelectedSongId = function (item) {
           $scope.selectedSongId = item.id;
-          $element.find('#modalDel').modal('show');
-          // $('#modalDel').modal('show');
-          // $scope.showModal = true;
+
+          // $scope.modalCustom.functionList.showModal = !$scope.modalCustom.functionList.showModal; //for do not use modal of bootstrap
+          // $timeout(function(){
+          //   $element.find('#modalDel') && $element.find('#modalDel').modal('show');
+          // });
         };
 
         $scope.showModalMulti = function () {
@@ -116,11 +117,40 @@ angular.module("musicApp")
           }
         };
 
+        //song table
+        $scope.songCustom = {
+          functionList: {
+            getId: $scope.getSelectedSongId,
+            goSomewhere: function (id){
+              $scope.goSomeWhere('/edit-song', id);
+            },
+            checkAll: $scope.checkAll,
+            checkItem: $scope.checkItem
+          },
+          headLabel: [
+            {'col0': 'check'},
+            {'col1': 'ID'},
+            {'col2': 'Name'},
+            {'col3': 'Artist'},
+            {'col4': 'Actions'}
+            ],
+          content: [
+            {key: 'id'},
+            {key: 'name'},
+            {key: 'artist'}
+          ]
 
-        // $scope.getId = function (item) {
-        //   $scope.getSelectedSongId = item.id;
-        //   $element.find('#modalDel').modal('show');
-        // };
+        };
+
+        //my-modal
+        $scope.modalCustom = {
+          functionList: {
+            delItem: $scope.delItem,
+            cancelAction: $scope.cancelAction,
+          },
+          modalTitle: "Delete Song",
+          modalBody: "Are you sure you want to delete this song?"
+        }
 
 
       }

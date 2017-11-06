@@ -33,41 +33,43 @@
       </div>
     </div>
 
-    <!-- start div table-->
+
     <div class="panel panel-default clearfix">
       <div class="panel-body">
-        <div class="div-table song-table">
-          <div class="div-tr bg-info">
-            <div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"
-                                                   ng-click="checkAll(chkAll.value, dataList)"></div>
-            <div class="div-th text-center">ID</div>
-            <div class="div-th">
-              <div class="div-th th-child">Name</div>
-              <div class="div-th th-child">Artist</div>
-            </div>
-            <div class="div-th text-center">Actions</div>
-          </div>
-          <div class="div-tr" ng-repeat="item1 in dataList | filter: searchList" ng-class="{'active': item1.selected}"
-               ng-click="checkItem(item1, dataList, $event,true)">
-            <div class="div-td text-center"><input class="test" type="checkbox" ng-model="item1.selected"
-                                                   ng-click="checkItem(item1, dataList, $event,false)"></div>
-            <div class="div-td text-center">{{item1.id}}</div>
-            <div class="div-td">
-              <div class="div-td td-child">{{item1.name}}</div>
-              <div class="div-td td-child">{{item1.desc}}</div>
-            </div>
-            <div class="div-td text-center">
-              <button class="btn btn-warning btn-sm btn-responsive" ng-click="goSomeWhere(&#39;/edit-playlist&#39;, item1.id)">
-                <i class="glyphicon glyphicon-pencil"></i>
-                <span class="visible-lg-inline visible-md-inline">Edit</span>
-              </button>
-              <button class="btn btn-danger btn-sm btn-hide btn-responsive" ng-click="getSelectedListId(item1)">
-                <i class="glyphicon glyphicon-trash"></i>
-                <span class="visible-md-inline visible-lg-inline">Delete</span>
-              </button>
-            </div>
-          </div>
-        </div> <!--end div-table-->
+        <div my-table var-table="listCustom" data="dataList" config="" search="searchList"></div>
+        <!-- start div table-->
+        <!--<div class="div-table song-table">-->
+          <!--<div class="div-tr bg-info">-->
+            <!--<div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"-->
+                                                   <!--ng-click="checkAll(chkAll.value, dataList)"></div>-->
+            <!--<div class="div-th text-center">ID</div>-->
+            <!--<div class="div-th">-->
+              <!--<div class="div-th th-child">Name</div>-->
+              <!--<div class="div-th th-child">Description</div>-->
+            <!--</div>-->
+            <!--<div class="div-th text-center">Actions</div>-->
+          <!--</div>-->
+          <!--<div class="div-tr" ng-repeat="item1 in dataList | filter: searchList" ng-class="{'active': item1.selected}"-->
+               <!--ng-click="checkItem(item1, dataList, $event,true)">-->
+            <!--<div class="div-td text-center"><input class="test" type="checkbox" ng-model="item1.selected"-->
+                                                   <!--ng-click="checkItem(item1, dataList, $event,false)"></div>-->
+            <!--<div class="div-td text-center">{{item1.id}}</div>-->
+            <!--<div class="div-td">-->
+              <!--<div class="div-td td-child">{{item1.name}}</div>-->
+              <!--<div class="div-td td-child">{{item1.desc}}</div>-->
+            <!--</div>-->
+            <!--<div class="div-td text-center">-->
+              <!--<button class="btn btn-warning btn-sm btn-responsive" ng-click="goSomeWhere(&#39;/edit-playlist&#39;, item1.id)">-->
+                <!--<i class="glyphicon glyphicon-pencil"></i>-->
+                <!--<span class="visible-lg-inline visible-md-inline">Edit</span>-->
+              <!--</button>-->
+              <!--<button class="btn btn-danger btn-sm btn-hide btn-responsive" ng-click="getSelectedListId(item1)">-->
+                <!--<i class="glyphicon glyphicon-trash"></i>-->
+                <!--<span class="visible-md-inline visible-lg-inline">Delete</span>-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div> &lt;!&ndash;end div-table&ndash;&gt;-->
 
         <!--modal del-->
         <div class="modal fade" id="modalDel" aria-hidden="true" role="dialog">

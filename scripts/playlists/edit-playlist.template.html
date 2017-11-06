@@ -48,26 +48,27 @@
         </div>
         <!--song table-->
         <div class="panel-body">
-          <div class="div-table song-table" ng-show="toggle">
-            <div class="div-tr bg-primary text-uppercase">
-              <div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"
-                                                     ng-click="checkAll(chkAll.value, dataSong)">
-              </div>
-              <div class="div-th text-center">ID</div>
-              <div class="div-th">Name</div>
-              <div class="div-th">Artist</div>
-              <!--<div class="div-th text-center">Actions</div>-->
-            </div>
-            <div class="div-tr" ng-repeat="item in dataSong | filter: searchSong" ng-class="{'active': item.selected}"
-                 ng-click="checkItem(item, dataSong, $event,true)">
-              <div class="div-td text-center"><input class="test" type="checkbox" ng-model="item.selected"
-                                                     ng-click="checkItem(item, dataSong, $event,false)"> <!--; checkInput(item.selected)-->
-              </div>
-              <div class="div-td text-center">{{item.id}}</div>
-              <div id="song1" class="div-td">{{item.name}}</div>
-              <div id="name1" class="div-td">{{item.artist}}</div>
-            </div>
-          </div>
+          <div my-table var-table="editListCustom" data="dataSong" config="config" search="searchSong" ng-show="toggle"></div>
+          <!--<div class="div-table song-table" ng-show="toggle">-->
+            <!--<div class="div-tr bg-primary text-uppercase">-->
+              <!--<div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"-->
+                                                     <!--ng-click="checkAll(chkAll.value, dataSong)">-->
+              <!--</div>-->
+              <!--<div class="div-th text-center">ID</div>-->
+              <!--<div class="div-th">Name</div>-->
+              <!--<div class="div-th">Artist</div>-->
+              <!--&lt;!&ndash;<div class="div-th text-center">Actions</div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="div-tr" ng-repeat="item in dataSong | filter: searchSong" ng-class="{'active': item.selected}"-->
+                 <!--ng-click="checkItem(item, dataSong, $event,true)">-->
+              <!--<div class="div-td text-center"><input class="test" type="checkbox" ng-model="item.selected"-->
+                                                     <!--ng-click="checkItem(item, dataSong, $event,false)"> &lt;!&ndash;; checkInput(item.selected)&ndash;&gt;-->
+              <!--</div>-->
+              <!--<div class="div-td text-center">{{item.id}}</div>-->
+              <!--<div id="song1" class="div-td">{{item.name}}</div>-->
+              <!--<div id="name1" class="div-td">{{item.artist}}</div>-->
+            <!--</div>-->
+          <!--</div>-->
         </div>
         <!-- footer -->
         <div class="panel-footer text-right">

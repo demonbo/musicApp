@@ -99,6 +99,9 @@ MEDIA QUERIES
 
 @media screen and (max-width: 539px) {
 
+  header {
+    font-size: smaller;
+  }
   .hide-on-small{
     display: none;
   }

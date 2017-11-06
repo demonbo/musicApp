@@ -1,6 +1,6 @@
 angular.module('musicApp')
-    .controller('EditListCtrl', ['$scope', '$routeParams', '$location', '$element','myListFactory', 'mySongFactory', 'listSongFactory',
-      function ($scope, $routeparams, $location, $element, myListFactory, mySongFactory, listSongFactory) {
+    .controller('EditListCtrl', ['$scope', '$routeParams', '$location', '$element','myListFactory', 'mySongFactory', 'listSongFactory','$timeout',
+      function ($scope, $routeparams, $location, $element, myListFactory, mySongFactory, listSongFactory, $timeout) {
 
         $scope.listFactory = myListFactory;
         $scope.dataList = $scope.listFactory.getList();
@@ -19,7 +19,9 @@ angular.module('musicApp')
             for (var j = 0; j < $scope.dataSong.length; j++) {
               if ($scope.dataSong[j].id === $scope.dataListSong[i].song) {
                 $scope.dataSong[j].selected = true;
-                $element.find('#checkboxAll')[0].indeterminate = true; /*test*/
+                $timeout(function(){
+                  $element.find('#checkboxAll')[0] && ($element.find('#checkboxAll')[0].indeterminate = true); /*$element.find('#checkboxAll')[0] && -> checking that obj have defined or not*/
+                });
                 break;
               }
             }
@@ -197,8 +199,36 @@ angular.module('musicApp')
             $scope.checkSong(data);
           }
         };
-
         /*end song*/
+
+
+        $scope.config = {
+          hideActions: true
+        };
+        //song table in edit plist
+        $scope.editListCustom = {
+          functionList: {
+            getId: $scope.getSelectedSongId,
+            goSomewhere: function (id){
+              $scope.goSomeWhere('/edit-song', id);
+            },
+            checkAll: $scope.checkAll,
+            checkItem: $scope.checkItem
+          },
+          headLabel: [
+            {'col0': 'check'},
+            {'col1': 'ID'},
+            {'col2': 'Name'},
+            {'col3': 'Artist'},
+            {'col4': 'Actions'}
+          ],
+          content: [
+            {key: 'id'},
+            {key: 'name'},
+            {key: 'artist'}
+          ]
+
+        };
 
 
     }]);

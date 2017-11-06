@@ -125,6 +125,33 @@ angular.module("musicApp")
         //   $element.find('#modalDel').modal('show');
         // };
 
+        //playlist table
+        $scope.listCustom = {
+          functionList: {
+            getId: $scope.getSelectedListId,
+            goSomewhere: function (id){
+              $scope.goSomeWhere('/edit-playlist', id);
+            },
+            checkAll: $scope.checkAll,
+            checkItem: $scope.checkItem
+          },
+          headLabel: [
+            {'col0': 'check'},
+            {'col1': 'ID'},
+            {'col2': 'Name'},
+            {'col3': 'Description'},
+            {'col4': 'Actions'}
+          ],
+          content: [
+            {key: 'id'},
+            {key: 'name'},
+            {key: 'desc'}
+          ]
+
+        };
+
+
+
 
       }
     ]);

@@ -105,7 +105,36 @@ angular.module('musicApp').controller('CreateListCtrl', ['$scope', '$location', 
         $scope.checkSong(data);
       }
     };
-
     /*end song*/
+
+    $scope.config = {
+      hideActions: true
+    };
+    //song table in create plist
+    $scope.createListCustom = {
+      functionList: {
+        getId: $scope.getSelectedSongId,
+        goSomewhere: function (id){
+          $scope.goSomeWhere('/edit-song', id);
+        },
+        checkAll: $scope.checkAll,
+        checkItem: $scope.checkItem
+      },
+      headLabel: [
+        {'col0': 'check'},
+        {'col1': 'ID'},
+        {'col2': 'Name'},
+        {'col3': 'Artist'},
+        {'col4': 'Actions'}
+      ],
+      content: [
+        {key: 'id'},
+        {key: 'name'},
+        {key: 'artist'}
+      ]
+
+    };
+
+
 
 }]);
