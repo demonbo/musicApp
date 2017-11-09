@@ -1,15 +1,16 @@
 <!--div table-->
 <div class="div-table song-table">
-  <div class="div-tr bg-info">
+  <div class="div-tr bg-info text-bold">
     <div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"
                                            ng-click="varTable.functionList.checkAll(chkAll.value, data)"></div>
     <div class="div-th text-center">{{varTable.headLabel[1].col1}}</div>
     <div class="div-th">
-      <div class="div-th th-child">{{varTable.headLabel[2].col2}}</div>
-      <div class="div-th th-child">{{varTable.headLabel[3].col3}}</div>
+      <div class="th-child">{{varTable.headLabel[2].col2}}</div>
+      <div class="th-child">{{varTable.headLabel[3].col3}}</div>
     </div>
-    <div class="div-th text-center" ng-hide="config.hideActions">{{varTable.headLabel[4].col4}}</div>
+    <div class="div-th pad-td-action text-center" ng-hide="config.hideActions">{{varTable.headLabel[4].col4}}</div>
   </div>
+  <!---->
   <div class="div-tr" ng-repeat="item in data | filter: search" ng-class="{'active': item.selected}"
        ng-click="varTable.functionList.checkItem(item, data, $event,true)">
     <div class="div-td text-center" >
@@ -19,19 +20,20 @@
     <!--ng-hide="config.hideCheckbox"-->
     <div class="div-td text-center">{{item[varTable.content[0].key]}}</div>
     <div class="div-td">
-      <div class="div-td td-child">{{item[varTable.content[1].key]}}</div>
-      <div class="div-td td-child">{{item[varTable.content[2].key]}}</div>
+      <div class="td-child">{{item[varTable.content[1].key]}}</div>
+      <div class="td-child">{{item[varTable.content[2].key]}}</div>
     </div>
-    <div class="div-td text-center" ng-hide="config.hideActions">
-      <button class="btn btn-warning btn-sm btn-responsive" ng-click="varTable.functionList.goSomewhere(item.id)">
+    <div class="div-td pad-td-action text-center" ng-hide="config.hideActions">
+      <button class="btn btn-warning btn-sm2 btn-responsive" ng-click="varTable.functionList.goSomewhere(item.id)">
         <i class="glyphicon glyphicon-pencil"></i>
         <span class="visible-lg-inline visible-md-inline">Edit</span>
       </button>
-      <button class="btn btn-danger btn-sm btn-hide btn-responsive" ng-click="varTable.functionList.getId(item); $event.stopPropagation();" >
+      <button class="btn btn-danger btn-sm2 btn-hide btn-responsive" ng-click="varTable.functionList.getId(item); $event.stopPropagation();" >
         <i class="glyphicon glyphicon-trash"></i>
         <span class="visible-md-inline visible-lg-inline">Delete</span>
       </button>
     </div>
   </div>
-</div> <!--end div table-->
+</div>
+<!--end div table-->
 

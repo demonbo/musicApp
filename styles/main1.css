@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Lato', sans-serif;
 }
 
@@ -118,30 +118,69 @@ header h1 {
   display: table;
   width: 100%;
   padding: 0;
-
-
+  /*white-space: nowrap;*/
   /*margin: 0;*/
 }
+
 .div-tr {
   display: table-row;
   width: 100%;
   /*padding: 5px;*/
 }
-.div-th,
-.div-td {
-  display: table-cell;
-  padding: 5px 10px;
-  /*margin-top: 10px;*/
-  border-bottom: 1px solid #ddd;
-}
 
 .div-td {
   margin-top: 5px;
+  /*display: flex;*/
+}
+
+.div-th,
+.div-td {
+  display: table-cell;
+  padding: 5px 8px;
+  /*margin-top: 10px;*/
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+  /*text-overflow: ellipsis;*/
+  /*overflow: hidden;*/
+}
+
+.div-th .th-child {
+  border-bottom: none;
+  width: 46%;
+  display: inline-block;
+}
+.div-td .td-child {
+  border-bottom: none;
+  width: 46%;
+  display: inline-block;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* directives css */
+.div-table .div-tr:hover,
+.div-table .div-tr.active {
+  background: #f5f5f5;
+}
+/*actions*/
+.pad-td-action {
+  padding: 5px 6px;
 }
 
 .test {
   margin-top: 0 !important;
 }
+
+/*button*/
+.btn-sm2 {
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  border-radius: 3px;
+}
+
 
 footer {
   text-align: center;
@@ -224,12 +263,6 @@ footer {
   text-align: right;
 }
 
-/* directives css */
-.div-table .div-tr:hover,
-.div-table .div-tr.active {
-  background: #f5f5f5;
-}
-
 
 div.div-tr.bg-primary:hover {
   background-color: #337ab7;
@@ -244,16 +277,8 @@ div.div-tr.bg-primary:hover {
   display: block;
 }
 
-/* table */
-.div-th .th-child {
-  border-bottom: none;
-  width: 49%;
-  display: inline-block;
-}
-.div-td .td-child {
-  border-bottom: none;
-  width: 49%;
-  display: inline-block;
+.text-bold {
+  font-weight: bold;
 }
 
 

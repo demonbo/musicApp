@@ -1,12 +1,12 @@
 angular.module("musicApp")
-  .factory("modalFactory", function () {
-    function modalService () {
+  .factory("modalFactory", [function () {
+    function modalService() {
       var service = {};
       service.set = set;
       service.get = get;
 
       function set(key, value) {
-        if(key !== null && key !== undefined){
+        if (key !== null && key !== undefined) {
           data[key] = value;
         }
       }
@@ -15,4 +15,17 @@ angular.module("musicApp")
       }
       return service;
     }
-  });
+  }
+  ]);
+
+
+
+
+// function ($resources) {
+//   return $resources("showModal", {}, {
+//     query: {
+//       params: {showModal: "showModal"}
+//     }
+//   });
+// }
+

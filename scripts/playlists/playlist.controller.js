@@ -14,7 +14,8 @@ angular.module("musicApp")
 
         $scope.getSelectedListId = function (item) {
           $scope.selectedListId = item.id;
-          $element.find('#modalDel').modal('show');
+          $scope.modalCustom.api.showModal(true);
+          // $element.find('#modalDel').modal('show');
           // $('#modalDel').modal('show');
           // $scope.showModal = true;
         };
@@ -149,6 +150,28 @@ angular.module("musicApp")
           ]
 
         };
+
+        //my-modal
+        $scope.modalCustom = {
+          functionList: {
+            delItem: $scope.delItem,
+            cancelAction: $scope.cancelAction
+          },
+          api: {}, //obj ro~ng de store cac function trong directive , showModal()
+          modalTitle: "Delete Playlist",
+          modalBody: "Are you sure you want to delete this playlist?"
+        };
+
+        //my-modal-multi
+        $scope.modalMultiCustom = {
+          functionList: {
+            delItem: $scope.delItem,
+            cancelAction: $scope.cancelAction
+          },
+          // api: {}, //obj ro~ng de store cac function trong directive
+          modalMultiTitle: "Delete Multiple Playlists",
+          modalMultiBody: "Are you sure you want to delete selected playlists?"
+        }
 
 
 

@@ -4,7 +4,39 @@ angular.module("musicApp")
         $scope.songFactory = mySongFactory;
         // $scope.showModal = false;
 
-        $scope.dataSong = mySongFactory.getSong();
+        mySongFactory.getSong().then(function(res){
+          // $scope.dataSong = res.data;
+          //format for the key getting from API have the same value like my GUI ===
+          $scope.dataSong = [];
+          function format(row){
+          // 'col1': 'ID'},
+          // {'col2': 'Name'},
+          // {'col3': 'Artist'},
+            var obj = angular.copy(row);
+            obj.name = row.title;
+            obj.artist = row.artists;
+            return obj;
+          }
+          angular.forEach(res.data, function(row){
+            $scope.dataSong.push(format(row));
+          });
+          //===
+          console.log('res ', res);
+        }, function (error){
+          console.log(error);
+        });
+
+        // activate();
+        // function activate() {
+        //   // mySongFactory.getAllSong().then(function (res) {
+        //   //   console.log(res);
+        //   //   $scope.dataSong = res;
+        //   // }).catch(function (err) {
+        //   //
+        //   // });
+        //   console.log($scope.songFactory.getAllSong());
+        // };
+
 
         $scope.disDeleteBtn = {value: true};
         $scope.chkAll = {value: false};
@@ -12,7 +44,7 @@ angular.module("musicApp")
 
         $scope.getSelectedSongId = function (item) {
           $scope.selectedSongId = item.id;
-
+          $scope.modalCustom.api.showModal(true);
           // $scope.modalCustom.functionList.showModal = !$scope.modalCustom.functionList.showModal; //for do not use modal of bootstrap
           // $timeout(function(){
           //   $element.find('#modalDel') && $element.find('#modalDel').modal('show');
@@ -146,11 +178,25 @@ angular.module("musicApp")
         $scope.modalCustom = {
           functionList: {
             delItem: $scope.delItem,
-            cancelAction: $scope.cancelAction,
+            cancelAction: $scope.cancelAction
           },
+          api: {}, //obj ro~ng de store cac function trong directive , showModal()
           modalTitle: "Delete Song",
           modalBody: "Are you sure you want to delete this song?"
+        };
+
+        //my-modal-multi
+        $scope.modalMultiCustom = {
+          functionList: {
+            delItem: $scope.delItem,
+            cancelAction: $scope.cancelAction
+          },
+          // api: {}, //obj ro~ng de store cac function trong directive
+          modalMultiTitle: "Delete Multiple Songs",
+          modalMultiBody: "Are you sure you want to delete selected songs?"
         }
+
+
 
 
       }

@@ -1,26 +1,44 @@
-angular.module("musicApp").factory("mySongFactory", [function() {
+angular.module("musicApp").factory("mySongFactory", ['$q',"$http", function($q, $http) {
   var factory = {};
-
-  var mySongs = [
-    {'id': 1, 'name': "Skyfall", 'artist': "Adele"},
-    {'id': 2, 'name': "Let it go", 'artist': "Idina Menzel"},
-    {'id': 3, 'name': "Mot coi di ve", 'artist': "Khanh Ly"},
-    {'id': 4, 'name': "Mad World", 'artist': "Adam Lambert"},
-    {'id': 5, 'name': 'Rolling in the deep', 'artist': "Adele"},
-    {'id': 6, 'name': "Radioactive", 'artist': "Imagine Dragon"},
-    {'id': 7, 'name': 'Let it go 2', 'artist': 'Idina Menzel'},
-    {'id': 8, 'name': 'Let it go 3', 'artist': 'Idina Menzel'},
-    {'id': 9, 'name': 'Let it go 5', 'artist': 'Idina Menzel'},
-    {'id': 10, 'name': 'Let it go 6', 'artist': 'Idina Menzel'},
-    // {'id': 11, 'name': 'Let it go 7', 'artist': 'I dina Menzel'},
-    // {'id': 12, 'name': 'Let it go 9', 'artist': 'Idina Menzel'}
-    // {'id': 13, 'name': 'Let it go 1', 'artist': 'Idina Menzel'}
-  ];
+   var mySongs = [];
+       // factory.getAllSong = function () {
+       //   $http.get("data/songDB.json").then(function(response){
+       //     return response;
+       //   });
+       // };
+   // console.log(mySongs);
+  // var mySongs = [
+  //   {'id': 1, 'name': "Skyfall", 'artist': "Adele"},
+  //   {'id': 2, 'name': "Let it go", 'artist': "Idina Menzel"},
+  //   {'id': 3, 'name': "Mot coi di ve", 'artist': "Khanh Ly"},
+  //   {'id': 4, 'name': "Mad World", 'artist': "Adam Lambert"},
+  //   {'id': 5, 'name': 'Rolling in the deep', 'artist': "Adele"},
+  //   {'id': 6, 'name': "Radioactive", 'artist': "Imagine Dragon"},
+  //   {'id': 7, 'name': 'Let it go 2', 'artist': 'Idina Menzel'},
+  //   {'id': 8, 'name': 'Let it go 3', 'artist': 'Idina Menzel'},
+  //   {'id': 9, 'name': 'Let it go 5', 'artist': 'Idina Menzel'},
+  //   {'id': 10, 'name': 'Let it go 6', 'artist': 'Idina Menzel'},
+  //   // {'id': 11, 'name': 'Let it go 7', 'artist': 'I dina Menzel'},
+  //   // {'id': 12, 'name': 'Let it go 9', 'artist': 'Idina Menzel'}
+  //   // {'id': 13, 'name': 'Let it go 1', 'artist': 'Idina Menzel'}
+  // ];
 
   // var selectedSongId = '';
 
   factory.getSong = function () {
-    return angular.copy(mySongs);
+    // var d = $q.defer();
+
+    console.log('get song');
+    return $http.get("api/song");
+
+        // .then(function(response){
+        //   console.log('response ', response);
+        //   mySongs =  response.data;
+        //
+        //   d.resolve(mySongs);
+        // });
+    // return d.promise;
+
   };
 
   factory.addSong = function (name, artist) {

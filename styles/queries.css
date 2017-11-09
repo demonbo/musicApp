@@ -62,11 +62,12 @@ MEDIA QUERIES
 
   /*btn*/
   .btn-sm1 {
-    padding: 5px 10px;
+    padding: 4px 8px;
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
   }
+
 
 
   .div-table {
@@ -149,6 +150,13 @@ MEDIA QUERIES
   }
   .div-table {
     font-size: 0.7em;
+  }
+
+  .div-td {
+    white-space: normal;
+  }
+  .div-td .td-child {
+    white-space: initial;
   }
 
   } /*end 409*/
