@@ -16,113 +16,20 @@
           <i class="glyphicon glyphicon-trash"></i>
           <span class="hide-on-small">Delete</span>
         </button>
-
-        <!--<a class="navbar-form search-field">-->
-          <!--<div class="input-group">-->
-            <!--<input ng-model="searchList" type="text" class="form-control" placeholder="Search" name="q">-->
-            <!--<div class="input-group-btn">-->
-              <!--<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</a>-->
         <div class="search-field">
           <label for="search-list"><i class="icon1 glyphicon glyphicon-search"></i></label>
           <input class="search" placeholder="Search" ng-model="searchList" id="search-list">
         </div>
-
       </div>
     </div>
-
-
     <div class="panel panel-default clearfix">
       <div class="panel-body">
+        <!--playlist table-->
         <div my-table var-table="listCustom" data="dataList" config="" search="searchList"></div>
-        <!-- start div table-->
-        <!--<div class="div-table song-table">-->
-          <!--<div class="div-tr bg-info">-->
-            <!--<div class="div-th text-center"><input class="test" id="checkboxAll" type="checkbox" ng-model="chkAll.value"-->
-                                                   <!--ng-click="checkAll(chkAll.value, dataList)"></div>-->
-            <!--<div class="div-th text-center">ID</div>-->
-            <!--<div class="div-th">-->
-              <!--<div class="div-th th-child">Name</div>-->
-              <!--<div class="div-th th-child">Description</div>-->
-            <!--</div>-->
-            <!--<div class="div-th text-center">Actions</div>-->
-          <!--</div>-->
-          <!--<div class="div-tr" ng-repeat="item1 in dataList | filter: searchList" ng-class="{'active': item1.selected}"-->
-               <!--ng-click="checkItem(item1, dataList, $event,true)">-->
-            <!--<div class="div-td text-center"><input class="test" type="checkbox" ng-model="item1.selected"-->
-                                                   <!--ng-click="checkItem(item1, dataList, $event,false)"></div>-->
-            <!--<div class="div-td text-center">{{item1.id}}</div>-->
-            <!--<div class="div-td">-->
-              <!--<div class="div-td td-child">{{item1.name}}</div>-->
-              <!--<div class="div-td td-child">{{item1.desc}}</div>-->
-            <!--</div>-->
-            <!--<div class="div-td text-center">-->
-              <!--<button class="btn btn-warning btn-sm btn-responsive" ng-click="goSomeWhere(&#39;/edit-playlist&#39;, item1.id)">-->
-                <!--<i class="glyphicon glyphicon-pencil"></i>-->
-                <!--<span class="visible-lg-inline visible-md-inline">Edit</span>-->
-              <!--</button>-->
-              <!--<button class="btn btn-danger btn-sm btn-hide btn-responsive" ng-click="getSelectedListId(item1)">-->
-                <!--<i class="glyphicon glyphicon-trash"></i>-->
-                <!--<span class="visible-md-inline visible-lg-inline">Delete</span>-->
-              <!--</button>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div> &lt;!&ndash;end div-table&ndash;&gt;-->
-
         <!--modal del-->
         <div my-modal config="modalCustom"></div>
-        <!--<div class="modal fade" id="modalDel" aria-hidden="true" role="dialog">-->
-          <!--<div class="modal-dialog">-->
-            <!--<div class="modal-content">-->
-              <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal">×</button>-->
-                <!--<h4 class="modal-title">-->
-                  <!--Delete Playlist-->
-                <!--</h4>-->
-              <!--</div>-->
-              <!--<div class="modal-body">-->
-                <!--Are you sure you want to delete this playlist ?-->
-              <!--</div>-->
-              <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="delItem()">-->
-                  <!--Yes-->
-                <!--</button>-->
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelAction()">-->
-                  <!--No-->
-                <!--</button>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-
         <!--modal multi del-->
         <div my-modal-multi config="modalMultiCustom"></div>
-        <!--<div class="modal fade" role="dialog" id="modalMultiDel" aria-hidden="true">-->
-          <!--<div class="modal-dialog">-->
-            <!--<div class="modal-content">-->
-              <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal">×</button>-->
-                <!--<h4 class="modal-title">-->
-                  <!--Delete Multiple Playlists-->
-                <!--</h4>-->
-              <!--</div>-->
-              <!--<div class="modal-body  ">-->
-                <!--Are you sure you want to delete selected playlists ?-->
-              <!--</div>-->
-              <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="delItem()">-->
-                  <!--Yes-->
-                <!--</button>-->
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelAction()">-->
-                  <!--No-->
-                <!--</button>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-
       </div> <!--end panel body-->
     </div> <!--end panel-->
     <!--end div-table-->

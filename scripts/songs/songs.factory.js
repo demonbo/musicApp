@@ -1,11 +1,7 @@
 angular.module("musicApp").factory("mySongFactory", ['$q',"$http", function($q, $http) {
   var factory = {};
-   var mySongs = [];
-       // factory.getAllSong = function () {
-       //   $http.get("data/songDB.json").then(function(response){
-       //     return response;
-       //   });
-       // };
+  // var mySongs = [];
+
    // console.log(mySongs);
   // var mySongs = [
   //   {'id': 1, 'name': "Skyfall", 'artist': "Adele"},
@@ -24,13 +20,22 @@ angular.module("musicApp").factory("mySongFactory", ['$q',"$http", function($q, 
   // ];
 
   // var selectedSongId = '';
+  // function init () {
+  //   $http.get("api/song").then(function(res){
+  //     mySongs = res.data;
+  //     console.log("mySongs", mySongs);
+  //   });
+  // }
+  // init();
 
+
+  //get songs
   factory.getSong = function () {
-    // var d = $q.defer();
-
-    console.log('get song');
     return $http.get("api/song");
 
+
+    // var d = $q.defer();
+    // console.log('get song');
         // .then(function(response){
         //   console.log('response ', response);
         //   mySongs =  response.data;
@@ -41,39 +46,86 @@ angular.module("musicApp").factory("mySongFactory", ['$q',"$http", function($q, 
 
   };
 
+  //add songs
   factory.addSong = function (name, artist) {
-    var index = mySongs.length;
-    if (index > 0) {
-      mySongs.push({'id': +mySongs[index - 1].id + 1 /*+ ''*/, 'name': name, 'artist': artist});
-    } else {
-      mySongs.push({'id': '1', 'name': name, 'artist': artist});
-    }
+    $http ({
+      url: "api/song",
+      method: "POST",
+      headers: {'content-type': 'application/json' },
+      data: {
+        name: name,
+        artist: artist
+      }
+    })
+        .then(function(success){
+      console.log(success);
+    },function(error){
+      console.log(error);
+    })
+    // var index = mySongs.length;
+    // if (index > 0) {
+    //   mySongs.push({'id': +mySongs[index - 1].id + 1 /*+ ''*/, 'name': name, 'artist': artist});
+    // } else {
+    //   mySongs.push({'id': '1', 'name': name, 'artist': artist});
+    // }
   };
 
+
+
   factory.removeSong = function (id) {
-    for (var i = 0; i < mySongs.length;) {
-      if (mySongs[i].id === id) {
-        mySongs.splice(i, 1);
-        break;
-      } else {
-        i++;
+    $http ({
+      url: "api/song",
+      method: "DELETE",
+      headers: {'content-type': 'application/json' },
+      data: {
+        id: [id]
       }
-    }
+    }).then(function(success) {
+      console.log(success);
+    },function(error) {
+      console.log(error);
+    })
+
+    // for (var i = 0; i < mySongs.length;) {
+    //   if (mySongs[i].id === id) {
+    //     mySongs.splice(i, 1);
+    //     break;
+    //   } else {
+    //     i++;
+    //   }
+    // }
   };
 
   factory.editSong = function (id, name, artist) {
-    for (var i = 0; i < mySongs.length; i++) {
-      if (mySongs[i].id === id) {
-        if (typeof name !== 'undefined' && name !== '') {
-          mySongs[i].name = name;
-        }
-        if (typeof artist !== 'undefined' && artist !== '') {
-          mySongs[i].artist = artist;
-        }
+    $http ({
+      url: "api/song",
+      method: "PUT",
+      headers: {'content-type': 'application/json' },
+      data: {
+        id: id,
+        name: name,
+        artist: artist
       }
-    }
+
+    }).then(function(success){
+      console.log(success)
+    }, function(error){
+      console.log(error);
+    });
     return true;
+    // for (var i = 0; i < mySongs.length; i++) {
+    //   if (mySongs[i].id === id) {
+    //     if (typeof name !== 'undefined' && name !== '') {
+    //       mySongs[i].name = name;
+    //     }
+    //     if (typeof artist !== 'undefined' && artist !== '') {
+    //       mySongs[i].artist = artist;
+    //     }
+    //   }
+    // }
+    // return true;
   };
+
     return factory;
 }]);
 

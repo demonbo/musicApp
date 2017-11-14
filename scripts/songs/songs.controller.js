@@ -3,39 +3,41 @@ angular.module("musicApp")
       function ($scope, $location, mySongFactory, $element, $timeout) {
         $scope.songFactory = mySongFactory;
         // $scope.showModal = false;
+        // $scope.dataSong = mySongFactory.getSong();
 
-        mySongFactory.getSong().then(function(res){
-          // $scope.dataSong = res.data;
-          //format for the key getting from API have the same value like my GUI ===
-          $scope.dataSong = [];
-          function format(row){
-          // 'col1': 'ID'},
-          // {'col2': 'Name'},
-          // {'col3': 'Artist'},
-            var obj = angular.copy(row);
-            obj.name = row.title;
-            obj.artist = row.artists;
-            return obj;
-          }
-          angular.forEach(res.data, function(row){
-            $scope.dataSong.push(format(row));
+        //get song when server has different keys
+        function getSong(){
+          $scope.songFactory.getSong()
+              .then(function(res) {
+            // console.log('res ', res);
+            $scope.dataSong = res.data;
           });
-          //===
-          console.log('res ', res);
-        }, function (error){
-          console.log(error);
-        });
+        }
+        getSong();
 
-        // activate();
-        // function activate() {
-        //   // mySongFactory.getAllSong().then(function (res) {
-        //   //   console.log(res);
-        //   //   $scope.dataSong = res;
-        //   // }).catch(function (err) {
-        //   //
-        //   // });
-        //   console.log($scope.songFactory.getAllSong());
-        // };
+
+        //   //format for the key getting from API have the same value like my GUI ===
+        //   $scope.dataSong = [];
+        //   function format(row){
+        //   // 'col1': 'ID'},
+        //   // {'col2': 'Name'},
+        //   // {'col3': 'Artist'},
+        //     var obj = angular.copy(row);
+        //     obj.name = row.title;
+        //     obj.artist = row.artists;
+        //     return obj;
+        //   }
+        //   angular.forEach(res.data, function(row){
+        //     $scope.dataSong.push(format(row));
+        //   });
+        //   //===
+        //   console.log('res ', res);
+        // }, function (error){
+        //   console.log(error);
+        // });
+
+
+
 
 
         $scope.disDeleteBtn = {value: true};
@@ -73,7 +75,13 @@ angular.module("musicApp")
             $scope.delMulti();
           }
           $scope.disDeleteBtn.value = true;
-          $scope.dataSong = $scope.songFactory.getSong();
+
+          // $scope.dataSong = $scope.songFactory.getSong();
+          // $scope.songFactory.getSong().then(function(res) {
+          //   $scope.dataSong = res.data;
+          // });
+          getSong();
+
           $scope.cancelAction();
         };
 

@@ -1,31 +1,38 @@
 angular.module('musicApp')
     .controller('EditSongCtrl', ['$scope', '$routeParams', '$location', 'mySongFactory',
-      function ($scope, $routeparams, $location, mySongFactory) {
+      function ($scope, $routeParams, $location, mySongFactory) {
 
         $scope.songFactory = mySongFactory;
-        $scope.dataSong = $scope.songFactory.getSong();
+        // $scope.songFactory.getSong();
+        $scope.songFactory.getSong().then(function(res) {
+          $scope.dataSong = res.data;
+          loading();
+        });
 
-        var songId = +$routeparams.id;
+
+        var songId = $routeParams.id;
 
         var oldName = 'song not found';
         var oldArtist = 'artist not found';
         var exist = false;
 
-        for (var i = 0; i < $scope.dataSong.length; i++) {
-          if ($scope.dataSong[i].id === songId) {
-            exist = true;
-            oldName = $scope.dataSong[i].name;
-            oldArtist = $scope.dataSong[i].artist;
-            break;
+        function loading() {
+          for (var i = 0; i < $scope.dataSong.length; i++) {
+            if ($scope.dataSong[i].id === songId) {
+              exist = true;
+              oldName = $scope.dataSong[i].name;
+              oldArtist = $scope.dataSong[i].artist;
+              break;
+            }
+          }
+          $scope.nameEdited = oldName;
+          $scope.artistEdited = oldArtist;
+          if (exist === false) {
+            $scope.disApplyBtn = true;
           }
         }
 
-        $scope.nameEdited = oldName;
-        $scope.artistEdited = oldArtist;
 
-        if (exist === false) {
-          $scope.disApplyBtn = true;
-        }
 
         $scope.changeSong = function (name, artist) {
           if (exist === true) {
